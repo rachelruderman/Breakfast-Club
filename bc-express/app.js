@@ -10,6 +10,9 @@ var User = require("./models").User;
 var Message = require("./models").Message;
 var moment = require("moment");
 var path = require("path");
+const schema = require("./schema").schema;
+const graphqlExpress = require("graphql-server-express").graphqlExpress;
+const graphiqlExpress = require("graphql-server-express").graphiqlExpress;
 const PORT = process.env.PORT || 4000;
 
 const corsOptions = {
