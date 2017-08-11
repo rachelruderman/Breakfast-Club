@@ -8,6 +8,7 @@ type Query {
   messages: [Message]
   places: [Place]
   currentEvent: Bevent
+  guestList: [User]
   event(id: Int): Bevent
 }
 

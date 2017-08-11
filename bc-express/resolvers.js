@@ -32,6 +32,12 @@ const resolvers = {
           { model: Place, as: "place_2" }
         ]
       });
+    },
+
+    guestList() {
+      return User.findAll({
+        where: { rsvp: true }
+      });
     }
   }
 };
