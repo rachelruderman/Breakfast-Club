@@ -21,25 +21,20 @@ const resolvers = {
     currentEvent() {
       return Bevent.findOne({
         limit: 1,
-        order: [["date", "DESC"]]
+        order: [["date", "DESC"]],
+        include: [
+          { model: GuestList, as: "guestLists" },
+          { model: ChallengeUserMedia, as: "challengeUserMedia" },
+          { model: SolutionProduct, as: "solutionProducts" },
+          { model: SolutionNote, as: "solutionNotes" },
+          {
+            model: SolutionQuote,
+            as: "solutionQuotes",
+            include: [{ model: Quote, as: "quote" }]
+          }
+        ]
       });
     }
-    // event (root, args){
-    //   return Bevent.find({
-    //     where: args,
-    //     include: [
-    //       { model: ChallengeProduct, as: "challengeProducts" },
-    //       { model: ChallengeUserMedia, as: "challengeUserMedia" },
-    //       { model: SolutionProduct, as: "solutionProducts" },
-    //       { model: SolutionNote, as: "solutionNotes" },
-    //       {
-    //         model: SolutionQuote,
-    //         as: "solutionQuotes",
-    //         include: [{ model: Quote, as: "quote" }]
-    //       }
-    //     ]
-    //    })
-    // }
   }
 };
 

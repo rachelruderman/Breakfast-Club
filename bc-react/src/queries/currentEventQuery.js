@@ -1,8 +1,8 @@
 import { gql } from "react-apollo";
 
 const usersQuery = gql`
-  query usersQuery {
-    users {
+  query currentEventQuery {
+    event {
       id
       firstName
       lastName
@@ -16,4 +16,4 @@ const usersQuery = gql`
   }
 `;
 
-export default usersQuery;
+export default currentEventQuery;

@@ -13,4 +13,4 @@ const messagesQuery = gql`
   }
 `;
 
-export default widgetsListQuery;
+export default messagesQuery;
