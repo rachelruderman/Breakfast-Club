@@ -67,7 +67,24 @@ const authorization = function(request, response, next) {
 };
 
 app.get("/", function(request, response) {
-  response.json({ message: "API Example App" });
+  return Bevent.findOne({
+    limit: 1,
+    order: [["date", "DESC"]],
+    include: [
+      {
+        model: GuestList,
+        as: "guestLists",
+        include: [{ model: User, as: "user" }]
+      },
+      { model: Place, as: "place_1" },
+      { model: Place, as: "place_2" }
+    ]
+  }).then(bevent => {
+    response.json({
+      message: "API Example App",
+      bevent: bevent
+    });
+  });
 });
 
 // fetches all messages from database

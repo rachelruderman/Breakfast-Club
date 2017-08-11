@@ -23,15 +23,13 @@ const resolvers = {
         limit: 1,
         order: [["date", "DESC"]],
         include: [
-          { model: GuestList, as: "guestLists" },
-          { model: ChallengeUserMedia, as: "challengeUserMedia" },
-          { model: SolutionProduct, as: "solutionProducts" },
-          { model: SolutionNote, as: "solutionNotes" },
           {
-            model: SolutionQuote,
-            as: "solutionQuotes",
-            include: [{ model: Quote, as: "quote" }]
-          }
+            model: GuestList,
+            as: "guestLists",
+            include: [{ model: User, as: "user" }]
+          },
+          { model: Place, as: "place_1" },
+          { model: Place, as: "place_2" }
         ]
       });
     }

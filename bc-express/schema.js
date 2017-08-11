@@ -55,6 +55,9 @@ type GuestList {
 type Bevent {
   date: String
   vote_status: Boolean
+  place_1: Place
+  place_2: Place
+  guestLists: [GuestList]
   winner: Int
   active: Boolean
   speaker: String
