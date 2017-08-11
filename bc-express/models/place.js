@@ -28,23 +28,6 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: true
     }
-    // instanceMethods: {
-    //   toJSON(){
-    //     return {
-    //       name: this.get(this.props.place),
-    //       address_street: this.get(this.props.place),
-    //       address_city: this.get(this.props.place),
-    //       address_state: this.get(this.props.place),
-    //       address_zip: this.get(this.props.place),
-    //       phone: this.get(this.props.place),
-    //       yelp_rating: this.get(this.props.place),
-    //       image_url: this.get(this.props.place),
-    //       categories: this.get(this.props.place),
-    //       review_count: this.get(this.props.place),
-    //       price: this.get(this.props.place)
-    //     }
-    //   }
-    // },
   });
 
   Place.associate = function(models) {
@@ -57,5 +40,22 @@ module.exports = function(sequelize, DataTypes) {
       as: "events_2"
     });
   };
+
+  Place.prototype.toJSON = () => {
+    return {
+      name: this.get(this.props.place),
+      address_street: this.get(this.props.place),
+      address_city: this.get(this.props.place),
+      address_state: this.get(this.props.place),
+      address_zip: this.get(this.props.place),
+      phone: this.get(this.props.place),
+      yelp_rating: this.get(this.props.place),
+      image_url: this.get(this.props.place),
+      categories: this.get(this.props.place),
+      review_count: this.get(this.props.place),
+      price: this.get(this.props.place)
+    };
+  };
+
   return Place;
 };
